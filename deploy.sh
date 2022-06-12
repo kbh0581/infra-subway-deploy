@@ -60,6 +60,8 @@ function reStartServer() {
   echo -e "서버 재 시작"
   nohup java -jar ${jarName} --java.security.egd=file:/dev/./urandom --server.port=8080 --spring.profiles.active=${PROFILE} > out.txt 2>&1
   echo -e "서버 시작 완료"
+
+
 }
 
 echo -e "${txtylw}=======================================${txtrst}"
