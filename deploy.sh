@@ -18,6 +18,7 @@ function check_profile() {
   fi
 }
 
+
 function check_branch() {
   git fetch
   git ls-remote --exit-code --heads origin $1
