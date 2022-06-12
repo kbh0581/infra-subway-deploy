@@ -50,7 +50,7 @@ function build_project() {
 }
 
 function process_kill() {
-    kill $(pgrep -f subway)
+    kill -9 $(pgrep -f subway)
 }
 
 function reStartServer() {
