@@ -51,7 +51,7 @@ function build_project() {
 
 function process_kill() {
     FIND_PID = $(pgrep -f subway);
-    kill -9 FIND_PID;
+    kill -9 ${FIND_PID}
 }
 
 function reStartServer() {
