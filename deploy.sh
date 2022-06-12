@@ -70,6 +70,7 @@ echo -e "${txtylw}=======================================${txtrst}"
 
 cd ${WROKING_DIR}
 
+
 read -p "배포할 환경을 입력 하세요(prod or local): " PROFILE
 check_profile ${PROFILE}
 
