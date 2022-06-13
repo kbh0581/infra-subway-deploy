@@ -75,7 +75,6 @@ read -p "배포할 브랜치를 입력 하세요: " BRACNH
 check_branch ${BRACNH}
 check_df ${BRACNH}
 
-
 git checkout ${BRACNH}
 build_project
 reStartServer
