@@ -32,8 +32,6 @@ function check_branch() {
 function check_df() {
   master=$(git rev-parse $1)
   remote=$(git rev-parse origin/$1)
-  echo $master
-  echo $remote
 
   if [[ $master == $remote ]]; then
     echo -e "${txtred} [$(date)] 이미 최신 버전으로 배포할 수 없습니다.! 😫"
@@ -50,8 +48,13 @@ function build_project() {
 }
 
 function process_kill() {
-    FIND_PID = $(pgrep -f subway);
-    kill -9 ${FIND_PID}
+    FIND_PID=$(pgrep -f subway);
+
+    if ! [ $FIND_PID ];
+    then
+      kill -9 $FIND_PID
+    fi
+
 }
 
 function reStartServer() {
@@ -79,4 +82,5 @@ check_branch ${BRACNH}
 check_df ${BRACNH}
 
 git checkout ${BRACNH}
+build_project
 reStartServer
