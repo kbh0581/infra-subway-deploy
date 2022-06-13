@@ -68,14 +68,13 @@ echo -e "${txtgrn}  << 스크립트 🧐 >>${txtrst}"
 echo -e "${txtylw}=======================================${txtrst}"
 
 cd ${WROKING_DIR}
-
-
 read -p "배포할 환경을 입력 하세요(prod or local): " PROFILE
 check_profile ${PROFILE}
 
 read -p "배포할 브랜치를 입력 하세요: " BRACNH
 check_branch ${BRACNH}
 check_df ${BRACNH}
+
 
 git checkout ${BRACNH}
 build_project
