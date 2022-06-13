@@ -49,8 +49,8 @@ function build_project() {
 
 function process_kill() {
     FIND_PID=$(pgrep -f subway);
-    echo -e $FIND_PID
-    if [ "$FIND_PID"  == "" ];
+    echo -e "aa '`$FIND_PID`'"
+    if ! [ `$FIND_PID` == `` ];
     then
       kill -9 $FIND_PID
     fi
@@ -61,9 +61,6 @@ function reStartServer() {
   jarName=$(find . -name "subway*.jar")
   echo -e "서버 재 시작"
   nohup java -jar ${jarName} --java.security.egd=file:/dev/./urandom --server.port=8080 --spring.profiles.active=${PROFILE} > out.txt 2>&1
-  echo -e "서버 시작 완료"
-
-
 }
 
 echo -e "${txtylw}=======================================${txtrst}"
@@ -73,13 +70,13 @@ echo -e "${txtylw}=======================================${txtrst}"
 cd ${WROKING_DIR}
 
 
-read -p "배포할 환경을 입력 하세요(prod or local): " PROFILE
-check_profile ${PROFILE}
+#read -p "배포할 환경을 입력 하세요(prod or local): " PROFILE
+#check_profile ${PROFILE}
 
-read -p "배포할 브랜치를 입력 하세요: " BRACNH
-check_branch ${BRACNH}
-check_df ${BRACNH}
+#read -p "배포할 브랜치를 입력 하세요: " BRACNH
+#check_branch ${BRACNH}
+#check_df ${BRACNH}
 
-git checkout ${BRACNH}
-build_project
+#git checkout ${BRACNH}
+#build_project
 reStartServer
