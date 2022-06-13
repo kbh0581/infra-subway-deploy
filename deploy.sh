@@ -48,9 +48,9 @@ function build_project() {
 }
 
 function process_kill() {
-    FIND_PID=$(pgrep -f subway);
-    echo -e "aa '`$FIND_PID`'"
-    if ! [ `$FIND_PID` == `` ];
+    FIND_PID="$(pgrep -f subway)";
+    echo -e "PID :: " + $FIND_PID;
+    if ! [ $FIND_PID == "" ];
     then
       kill -9 $FIND_PID
     fi
